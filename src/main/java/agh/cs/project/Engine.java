@@ -24,11 +24,12 @@ public class Engine {
         this.level = level;
     }
 
+    //obsługa akcji wrogów, 50% ruch w strone gracza, 50% strzał w stronę gracza
     public void enemiesShootOrMove() {
         for (Tank enemy : this.battleField.getTankIterable()) {
             if (enemy.getId() == 1) {
-                int p = random.nextInt(2);
-                if (p == 0) {
+                double p = random.nextDouble();
+                if (p < 0.5) {
                     Vector2d direction = enemy.getPosition().moveTowardsEnemy(battleField.getPlayer().getPosition());
                     enemy.setCurrentMovement(direction);
                     enemy.move(direction);
@@ -41,6 +42,7 @@ public class Engine {
         }
     }
 
+    //przesuwa pociski, w razie zderzeń pocisków usuwa je z mapy
     public void moveBullets() {
         battleField.headOnCollisions();
         for (Bullet bullet : Set.copyOf(battleField.getBulletCollection().getBullets().values())) {
@@ -94,6 +96,7 @@ public class Engine {
         } else counterTank++;
     }
 
+    //metoda zadaje obrażenia obiektom, które weszły w pole rażenia pewnego pocisku
     public void makeDamage() {
         for (Bullet bullet : Set.copyOf(battleField.getBulletCollection().getBullets().values())) {
             if (battleField.isOccupied(bullet.getPosition())) {

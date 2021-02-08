@@ -46,6 +46,7 @@ public class Vector2d {
         return this.x == that.x && this.y == that.y;
     }
 
+    //AI wroga do poruszania, przybliża się wzdłuż jednej ze składowych
     public Vector2d moveTowardsEnemy(Vector2d enemyPosition) {
         Vector2d vectorBetweenRivals = enemyPosition.subtract(this);
         int variant = random.nextInt(2);
@@ -58,6 +59,8 @@ public class Vector2d {
         }
     }
 
+    //AI wroga do strzelania, wybiera odpowiedni obszar, w który powinien zostać wystrzelony pocisk
+    //obliczany na podstawie kąta
     public Vector2d chooseShootDirection(Vector2d enemyPosition) {
         Vector2d vectorBetweenRivals = enemyPosition.subtract(this);
         if (vectorBetweenRivals.x == 0) {

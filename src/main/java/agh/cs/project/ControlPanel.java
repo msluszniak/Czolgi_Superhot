@@ -13,6 +13,8 @@ public class ControlPanel extends VBox {
     private final HBox hBox;
     private final Scene scene;
 
+    //klasa odpowiedzialna za sterowanie przebiegiem, a także tworzeniem panelu do ustalenia opcji gry
+
     public ControlPanel(HBox hBox, Scene scene) {
         this.hBox = hBox;
         this.scene = scene;

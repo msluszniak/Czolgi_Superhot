@@ -35,6 +35,7 @@ public class Bullet implements IMapElement {
         return moveDirection;
     }
 
+    //pozycja naboju w następnej turze
     public Vector2d nextPosition(){
         return position.add(moveDirection);
     }

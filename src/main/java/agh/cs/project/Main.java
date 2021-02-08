@@ -9,7 +9,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-
         HBox hBox = new HBox();
         Scene scene = new Scene(hBox);
         hBox.getChildren().add(new ControlPanel(hBox, scene));

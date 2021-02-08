@@ -8,6 +8,8 @@ public class KeyEventHandler {
     private final Engine engine;
     private final HBox hBox;
 
+    //obsługuje akcje po wciśnięciu odpowiedniego klawisza
+
     public KeyEventHandler(BattleFieldVisualizer battleFieldVisualizer, HBox hBox) {
         this.engine = battleFieldVisualizer.getEngine();
         this.battleFieldVisualizer = battleFieldVisualizer;

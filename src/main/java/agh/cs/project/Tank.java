@@ -47,6 +47,7 @@ public class Tank implements IMapElement {
         this.numberOfLivesChanged();
     }
 
+    //wykonanie ruchu jeśli jest możliwy
     public boolean move(Vector2d movement) {
         Vector2d lowerLeft = this.BattleField.getLowerLeft();
         Vector2d upperRight = this.BattleField.getUpperRight();
@@ -63,6 +64,7 @@ public class Tank implements IMapElement {
         }
     }
 
+    //wykonanie strzału jeśli jest możliwy
     public boolean shoot(Vector2d movement) {
         Vector2d lowerLeft = this.BattleField.getLowerLeft();
         Vector2d upperRight = this.BattleField.getUpperRight();

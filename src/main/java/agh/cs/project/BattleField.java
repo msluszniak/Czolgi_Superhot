@@ -65,7 +65,7 @@ public class BattleField {
         }
     }
 
-
+    //metoda nie uzwględnia bulletów
     public boolean isOccupied(Vector2d position) {
         if (tankCollection.getTanks().containsKey(position)) {
             return true;
@@ -101,6 +101,7 @@ public class BattleField {
         return player;
     }
 
+    //zderzenia czołowe, zrobione po to, żeby pociski nacierzające czołowo nie przenikały przez siebie
     public void headOnCollisions() {
         for (Bullet bullet : Set.copyOf(bulletCollection.getBullets().values())) {
             if (isBulletAtPosition(bullet.nextPosition()) &&
