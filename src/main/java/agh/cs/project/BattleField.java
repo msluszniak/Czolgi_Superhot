@@ -103,9 +103,9 @@ public class BattleField {
 
     public void headOnCollisions() {
         for (Bullet bullet : Set.copyOf(bulletCollection.getBullets().values())) {
-            if (bulletCollection.getBullets().containsKey(bullet.getPosition().add(bullet.getMoveDirection())) &&
-                    bulletCollection.getBullets().get(bullet.getPosition().add(bullet.getMoveDirection())).getPosition().add(bulletCollection.getBullets().get(bullet.getPosition().add(bullet.getMoveDirection())).getMoveDirection()).equals(bullet.getPosition())) {
-                this.removeElement(bulletCollection.getBullets().get(bullet.getPosition().add(bullet.getMoveDirection())));
+            if (isBulletAtPosition(bullet.nextPosition()) &&
+                    getBulletAtPosition(bullet.nextPosition()).nextPosition().equals(bullet.getPosition())) {
+                this.removeElement(getBulletAtPosition(bullet.nextPosition()));
                 this.removeElement(bullet);
             }
         }
